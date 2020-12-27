@@ -533,7 +533,7 @@ void histogram::HistogramCollector::collecting_thread(int selfpipe) {
                 char buffer[sizeof(drm_msm_event_resp) + sizeof(uint32_t)];
                 auto size_read = read(*drm, buffer, sizeof(buffer));
                 if (size_read != sizeof(buffer)) {
-                    ALOGW("Histogram event wrong size (%lu bytes, errno: %X). Skipping event.",
+                    ALOGW("Histogram event wrong size (%zu bytes, errno: %X). Skipping event.",
                         size_read, errno);
                     continue;
                 }
